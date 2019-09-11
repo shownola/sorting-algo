@@ -14,14 +14,19 @@ def analyze_func(func_name, arr):
     func_name(arr)
     toc = time.time()
     seconds = toc-tic
-    print(f"{func_name.__name__.capitalize()}\t -> Elapsed time: {seconds} ")
+    print(f"{func_name.__name__.capitalize()}\t -> Elapsed time: {seconds:.5f} ")
 
 
 size = int(input("What size list would you like to create? Enter a number: "))
 max = int(input("What is the maximum value of the list you are creating? "))
+run_times = int(input("How many times would you like to run the program? "))
 
-l = create_random_list(size, max)
 
-analyze_func(quicksort, l)
-analyze_func(mergesort, l)
-analyze_func(bubblesort, l.copy())
+for num in range(run_times):
+    print(f"Run: {num+1}")
+    l = create_random_list(size, max)
+    analyze_func(bubblesort, l.copy())
+    analyze_func(mergesort, l)
+    analyze_func(quicksort, l)
+    analyze_func(sorted, l)
+    print("-" * 60)
