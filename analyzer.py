@@ -9,16 +9,18 @@ def create_random_list(size, max_val):
         ran_list.append(random.randint(1,max_val))
     return ran_list
 
+def analyze_func(func_name, arr):
+    tic = time.time()
+    func_name(arr)
+    toc = time.time()
+    seconds = toc-tic
+    print(f"{func_name.__name__.capitalize()}\t -> Elapsed time: {seconds} ")
+
+
 size = int(input("What size list would you like to create? Enter a number: "))
 max = int(input("What is the maximum value of the list you are creating? "))
 
 l = create_random_list(size, max)
-tic = time.time()
-quicksort(l)
-toc = time.time()
-print("QuickSort Elapsed time -> ", toc-tic)
 
-tic = time.time()
-mergesort(l)
-toc = time.time()
-print("MergeSort Elapsed time -> ", toc-tic)
+analyze_func(quicksort, l)
+analyze_func(mergesort, l)
