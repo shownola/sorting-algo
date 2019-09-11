@@ -1,6 +1,6 @@
 import random
 import time
-from demos import quicksort, mergesort
+from demos import quicksort, mergesort, bubblesort
 
 
 def create_random_list(size, max_val):
@@ -24,3 +24,4 @@ l = create_random_list(size, max)
 
 analyze_func(quicksort, l)
 analyze_func(mergesort, l)
+analyze_func(bubblesort, l.copy())
